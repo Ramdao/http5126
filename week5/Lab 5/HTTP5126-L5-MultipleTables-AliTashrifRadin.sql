@@ -28,3 +28,6 @@ SELECT COUNT(s.item) AS 'Times Sold', si.id, si.item, si.price, si.category FROM
 -- A <Times sold By employee Farud by date>
 -- B
 SELECT COUNT(s.item) AS 'Times Sold', e.first_name, s.date FROM sales s RIGHT JOIN employees e ON e.id=s.employee WHERE e.first_name= 'Farud' GROUP BY s.date;
+
+select count(sales.employee) as count, employees.first_name from sales inner join employees on employees.id = sales.employee group by employee
+select employees.first_name, sales.item, stock_items.item from employees inner join sales on sales.employee = employees.id inner join stock_items on sales.item = stock_items.id where first_name= "Henry" group by sales.item
